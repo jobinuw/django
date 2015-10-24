@@ -1,6 +1,10 @@
 con este comando desde cualquier maquina que tenga git instalado, desde
 el terminal de windows o el bash de git se puede clonar el
  directorio especificado en este caso el mio. /mypro
+ 
+ 
+ con el comando git init se crea un .git en ese directorio desde donde tiras el comando, esoto permite desde ese directorio
+ tirar los comandos git que vienen
 
 git clone https://github.com/jobinuw/mypro.git
 
@@ -15,6 +19,11 @@ Si se crea un nuevo archivo dentro de esta carpeta mypro,
 para subirlo a la nube de git se deben seguir estos pasos:
 
 C:\mypro> git add socialprofile.html
+o
+este comando sube todo lo que haya incluyendo carpetas
+C:\mypro> git add -A
+
+
 
 luego para subirlo a la nube de git hay que darle 
 
