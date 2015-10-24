@@ -1,0 +1,99 @@
+// Notas del video de django en youtube by microsoft
+
+Patron MVC Modelo, vista , controlador
+
+Un patron es un recipe para resolver un problema, No necesitan ser seguidos al pie de la Letra
+Usalo donde creas que encaja y modificalo si no lo hace. 
+
+// Model, es la DATA  (Base de Datos)
+
+
+
+// View, es lo que el usuario va a ver, html js css  Representa el modelo. Craga la Data, Usa el ORM===, llama a la plantilla, 
+
+
+
+//Controller es el que recibe lo que manda el usuario y hace el trabajo , gets the user request and get the job done!
+En Django es URL Config. it figures out what the user wants /algo /noticias /nombres /porn etc
+toma el request busca la data la procesa y la merge with the view
+
+
+===ORM  object relational mapping le hablara a la BD por ti. middle layer. En vez de hacer la peticiones en sql directamente.
+
+
+
+Scripts\activate
+
+python manage.py makemigrations --name initial app
+
+este comando crea un package dentro de la aplicacion llamado "migrations"
+=========================================================================
+
+C:\mypro1\tango>python manage.py makemigrations rango
+C:\mypro1\tango
+Migrations for 'rango':
+  0001_initial.py:
+    - Create model Album
+    - Create model Artist
+    - Add field artist to album
+
+C:\mypro1\tango>
+=========================================================================
+// Errores 
+// Errores 
+C:\mypro1\tango>python manage.py makemigrations  initial app
+C:\mypro1\tango
+App 'app' could not be found. Is it in INSTALLED_APPS?
+App 'initial' could not be found. Is it in INSTALLED_APPS?
+
+C:\mypro1\tango>python manage.py makemigrations rango app
+C:\mypro1\tango
+App 'app' could not be found. Is it in INSTALLED_APPS?
+
+C:\mypro1\tango>python manage.py makemigrations rango
+C:\mypro1\tango
+Migrations for 'rango':
+  0001_initial.py:
+    - Create model Album
+    - Create model Artist
+    - Add field artist to album
+
+C:\mypro1\tango>
+
+====================================================================================================
+
+python manage.py sqlmigrate rango 0001   //  no se coloca el nombre completo  0001_initial.py
+
+=====================================================================================================
+C:\mypro1\tango
+BEGIN;
+CREATE TABLE "rango_album" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "na
+me" varchar(50) NOT NULL);
+CREATE TABLE "rango_artist" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "n
+ame" varchar(50) NOT NULL, "year_formed" integer unsigned NOT NULL);
+CREATE TABLE "rango_album__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT
+, "name" varchar(50) NOT NULL, "artist_id" integer NOT NULL REFERENCES "rango_ar
+tist" ("id"));
+INSERT INTO "rango_album__new" ("id", "name") SELECT "id", "name" FROM "rango_al
+bum";
+DROP TABLE "rango_album";
+ALTER TABLE "rango_album__new" RENAME TO "rango_album";
+CREATE INDEX rango_album_ca949605 ON "rango_album" ("artist_id");
+
+COMMIT;
+
+C:\mypro1\tango>python manage.py migrate
+C:\mypro1\tango
+Operations to perform:
+  Apply all migrations: admin, rango, contenttypes, auth, sessions
+Running migrations:
+  Applying rango.0001_initial... OK
+
+C:\mypro1\tango>
+
+===================================================================
+
+para interactuar con la base de datos debe hacerse desde la DJANGO SHELL::
+
+$ python manage.py shell
+C:\mypro1\tango>python manage.py shell

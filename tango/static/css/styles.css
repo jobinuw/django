@@ -1,0 +1,56 @@
+/* use this to put borders around things... */
+.thin_border{
+	border: 1px solid black;
+}
+body {
+	background: gray;
+	color: yellow;
+	}
+a {
+	
+	color: yellow;
+	text-decoration: none;
+	}
+a:hover {
+	
+	background: blue;
+	color: gray;
+	}
+p {
+	font-size: 20px;
+	font-family: sans-serif;
+	
+	}
+	
+.margen{
+	
+	margin-left:200px;
+	}
+	
+.otrolink{
+	background: blue;
+	color: red;
+	
+	}
+
+	
+	
+@media (min-width:500px){
+	.responsive {
+	display: inline-block;
+	width: 300px;
+	border: 1px solid black;
+	background: blue;
+	}
+	
+	}
+	
+@media (min-width:1000px){
+	.responsive {
+	display: inline-block;
+	width: 500px;
+	border: 1px solid black;
+	background: green;
+	}
+	
+	}

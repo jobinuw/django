@@ -1,0 +1,40 @@
+con este comando desde cualquier maquina que tenga git instalado, desde
+el terminal de windows o el bash de git se puede clonar el
+ directorio especificado en este caso el mio. /mypro
+
+git clone https://github.com/jobinuw/mypro.git
+
+al hacer esto automaticamente si lo haces desde c:/ se te
+crea una carpeta /mypro y desde ella es que se van a lanzar los comandos
+en la termninal de windows:
+
+C:\mypro> git commit
+C:\mypro> git status
+
+Si se crea un nuevo archivo dentro de esta carpeta mypro,
+para subirlo a la nube de git se deben seguir estos pasos:
+
+C:\mypro> git add socialprofile.html
+
+luego para subirlo a la nube de git hay que darle 
+
+C:\mypro> git commit -m "added socialprofile.html" //el comentario entre comillas aparece en el panel de github.com
+
+si lanza error hay que loguearse:
+
+ git config --global user.email "jmmn84@hotmail.com"
+ git config --global user.name "jobinuw"
+
+luego:
+
+C:\mypro> git push
+//git config --global push.default simple//
+
+Otro usuario que este trabajando tambien en el mismo proyecto, para actualizar
+el archivo que se acaba de subir debe darle:
+
+C:\mypro> git pull
+
+permitir al otro usuario como colaborator en la pagina de 
+github/settings/add colaborator
+

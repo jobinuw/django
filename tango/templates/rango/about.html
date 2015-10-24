@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load staticfiles %} <!-- New line -->
+<html>
+
+	<head>
+		<title>
+			Encabezado Aparece en la Pestana
+		</title>
+		<link rel="stylesheet" href="{% static "css/styles.css" %}" />	
+	</head>
+	<body>
+	<a href='/rango/'>SocialProfile</a>
+	<h1>Contenido dentro del Body</h1>
+	 <h1>Rango says...</h1>
+        hello world! <strong>{{ boldmessage }}</strong><br />
+	<a href="http://www.w3schools.com"><img src="https://s3.amazonaws.com/codecademy-blog/assets/da840950.jpg" /></a>
+	<p><strong>Contenido 
+      dentro del Body</strong></p>
+    <h1>Contenido dentro</h1>
+    <h1>del Body</h1>
+    <p>el perro {{ varia }}</p>
+    <p>el gato</p>
+    <h2>CEO {</h2>
+      <p>El Jefe</p>
+    <h3>VP</h3>
+      <p>Semi Jefe</p>
+    <h4>Director</h4>
+      <p>El Jefito</p>
+    <h5>Gerente</h5>
+    <h6>Otros</h6>
+		
+	</body>
+</html>
