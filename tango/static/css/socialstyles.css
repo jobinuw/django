@@ -1,0 +1,126 @@
+/* use this to put borders around things... */
+.thin_border{
+	border: 1px solid black;
+}
+body {
+	background: #c9691c;
+	color: #f5b529;
+	}
+a {
+	
+	color: yellow;
+	text-decoration: none; /* Quita la rayita azul por defecto que viene debajo del link */
+	}
+a:hover {
+	
+	background: green;
+	color: gray;
+	}
+	
+a:link {
+	color:#008B45;
+	font-weight: bold;
+	text-decoration: none;
+}
+p {
+	font-size: 20px;
+	font-family: sans-serif;
+	
+	}
+	
+.margen{
+	
+	margin-left:200px;
+	}
+	
+.otrolink{
+	background: blue;
+	color: red;
+	
+	}
+/* Como anidar los selectors si quiero solo aplicar el estilo a un parrafo dentro*/
+/*de dos div seria div div p {  } 
+div div p {
+     
+
+	}
+	 */
+	
+/* Este estilo de borde punteado aplicaria a todos los elementos HTML ya que asi lo denota el asterisco
+* {
+    border: 1px dashed #3A5FCD;
+}
+*/	
+	
+@media (min-width:500px){
+	.responsive {
+	display: inline-block;
+	width: 300px;
+	border: 1px solid black;
+	background: blue;
+	}
+	
+	}
+	
+@media (min-width:1000px){
+	.responsive {
+	display: inline-block;
+	width: 500px;
+	border: 1px solid black;
+	background: green;
+	}
+	
+	}
+	
+div {
+	font-size: 20px;
+	font-family:serif;	
+	background-color:#cc0000;
+	height:74px;
+	width:120px;
+	}
+	
+	
+td {
+    border: 2px dashed blue;
+    height: 50px;
+}
+table {
+    border: 1px solid black;
+}
+
+	img {
+	font-size: 18px;
+	font-family:Garamond, serif;	
+    border: 3px solid #904d06;
+	height:200px;
+	width:300px;
+	}
+/* Estas dos clases es para no afectar el div ya creado arriba*/
+/*solo se van a aplicar al boton de facebook*/	
+.academy {
+	border-radius: 5px;
+	border: 2px solid #6495ED;
+	background-color: #BCD2EE;
+	height: 53px;
+	width: 120px;
+	margin: auto;
+	text-align: center;
+	}
+/*de esta forma solo se afecta al span que esta dentro del div academy*/	
+.academy span {
+	font-weight: bold;
+	font-size: 18px;
+	color: #ffffff;
+}
+.academy a {
+	text-decoration: none;
+	color: #3D59AB;
+	font-family: Verdana, sans-serif;
+	font-size: 16px;
+}
+.academy a:hover {
+	
+	background: #BCD2EE;
+	}
+/*Fin del Boton*/	

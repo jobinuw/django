@@ -11,5 +11,4 @@ class Album(models.Model):
   artist= models.ForeignKey(Artist)
   
  # Creating and upodating data, Basic Queries, Custom Queries
- 
 

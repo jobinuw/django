@@ -81,6 +81,7 @@ ALTER TABLE "rango_album__new" RENAME TO "rango_album";
 CREATE INDEX rango_album_ca949605 ON "rango_album" ("artist_id");
 
 COMMIT;
+=====================================================================
 
 C:\mypro1\tango>python manage.py migrate
 C:\mypro1\tango
@@ -93,7 +94,142 @@ C:\mypro1\tango>
 
 ===================================================================
 
+como crear una entrada en la BD aprovechando ya las clases creadas en models.py
+
+newArtist=Artist(name="Great Big Sea",year_formed=1985)
+newArtist.save()
+allArtists = Artist.objects.all()
+allArtists[0].name
+
+
+
+=========================================================================
+
 para interactuar con la base de datos debe hacerse desde la DJANGO SHELL::
 
 $ python manage.py shell
 C:\mypro1\tango>python manage.py shell
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+
+C:\mypro1\tango>python manage.py shell
+C:\mypro1\tango
+Python 2.7.5 (default, May 15 2013, 22:43:36) [MSC v.1500 32 bit (Intel)] on win
+32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from rango.models import Artist
+>>> in = Artist.objects.get(id=1)
+  File "<console>", line 1
+    in = Artist.objects.get(id=1)
+     ^
+SyntaxError: invalid syntax
+>>> ind = Artist.objects.get(id=1)
+>>> ind.name
+u'Great Big Sea'
+>>> nameArtist = Artist.objects.get(name="Great Big Sea")
+>>> nameArtist.name
+u'Great Big Sea'
+>>> nameArtist.year_formed
+1985
+>>> nameArtist.id
+1
+>>>
+
+
+>>> queryArtist = Artist.objects.filter(year_formed = 1985)
+>>> for ar in queryArtist:
+... print(ar.name)
+  File "<console>", line 2
+    print(ar.name)
+        ^
+IndentationError: expected an indented block
+>>> for ar in queryArtist:
+...   print(ar.name)
+...
+Great Big Sea
+>>>
+esta query filtra los q sean del ano y del pais funciona como un and
+
+
+queryArtist = Artist.objects.filter(year_formed = 1985).exclude(country = "canada")
+
+
+from rango.models import Album
+
+>>> from rango.models import Artist
+>>> from rango.models import Album
+>>> artista1 = Artist(name = "ledvarela",year_formed=1966)
+>>> artista1.save()
+>>> artista2 = Artist(name = "anavcarela",year_formed=1996)
+>>> artista2.save()
+>>> Album(name ="Up", artist=artista1).save()
+>>> Album(name ="7Up", artist=artista2).save()
+Album(name ="Up1", artist=artista1).save()
+Album(name ="8Up", artist=artista2).save()
+
+
+///////
+
+FOREIGN KEY QUERIES RELACIONA CADA ALBUM CON EL FOREIGN KEY ARTIST Q YA ESTA DEFINIDO EN MODELS.PY
+
+SQLITEBROWSER.ORG DESCARGAR PARA PODER VISUALIZAR LAS TABLAS CREADAS EN LA DB
+
+
+para que el foreign key funcione poner en la shell
+import django
+django.setup()
+
+>>> albums = Album.objects.filter(artist__name="ledvarela")
+>>> for album in albums:
+...    print(album.name)
+...
+Up
+Up1
+
+////////////////////////////////////////////////////
+
+
+>>> albumes = Album.objects.filter(artist__name="anavcarela")
+>>> for album in albumes:
+...    print(album.name)
+...
+7Up
+8Up
+
+
+============================================================================================================================================
+============================================================================================================================================
+============================================================================================================================================
+ROUTING URL-S MATCHING PATTERN    HORA 2 A 3 DEL VIDEO
+============================================================================================================================================
+============================================================================================================================================
+
+
+USING TEMPLATES
+ENSURING CONSISTENCY
+FORMS          
+
+
+TEMA A PARTIR DE LA HORA 3.
+
+ 
+newArtist=Artist(name="Great Big Sea",year_formed=1985)
+newArtist.save()
+allArtists = Artist.objects.all()
+allArtists[0].name
+
+
+
+//////////////////////////////////////////////////////////////
+
+EN la view yo declaro una class artist, cuando en se pide en la url /rango/artist
+se despacha esta view, dentro de esta se hace una consulta a la base de datos
+y dentro de la plantilla se hace referencia a esta lista de objetos traidas de la BD
+o sea en la plantilla se muestran los datos traidos a traves de la view hacia el cliente que 
+quiere visualizar algo.
+
+Es decir que con las templates o plantillas django se encarga de inyectar
+codigo html en la pagina para q posteriormente sea vista por el user.

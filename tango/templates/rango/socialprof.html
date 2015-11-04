@@ -1,37 +1,39 @@
 <!DOCTYPE html>
-{% load staticfiles %} <!-- New line -->
 <html>
 	<head>
-		<title>The Kingest of Kongs</title>
-	<link rel="stylesheet" href="{% static "css/styles.css" %}" />
+		<title>El Rey De los Gorillas</title>
+		<link rel="stylesheet"
+		  type="text/css"
+		  href="socialstyles.css"
+	      />
 	</head>
 	
 	<body>
-	
 	        
 			<a href="prueba.html">PruebaPage</a>
 	        &nbsp;
-	        <a href="/rango/about">ABOUT</a>
-			
+	        <a href="prueba.html">PruebaPage2</a>
 		<p id="printthis">
                 <a href="javascript:window.print()"class="otrolink">Print this page</a>
                 </p>
 		<img src="https://s3.amazonaws.com/codecademy-blog/assets/da840950.jpg" class="margen">
-		<p class="margen" >{{ varia}} I'm male, 89 years old, and am a giant, Empire State Building-climbing ape.</p>
-		<img src="{% static "images/penguins.jpg" %}" alt="Picture of Rango" /> <!-- New line -->
+		<p class="margen" >I'm male, 89 years old, and am a giant, Empire State Building-climbing ape.</p>
 		
-		
+		<!--Como dibujar un boton from codeacademy exercises--> 
+		<img src="https://s3.amazonaws.com/codecademy-blog/assets/46838757.png" class="margen"/>
+		<p>We're Codecademy! We're here to help you learn to code.</p><br/><br/>
+		<div  class="academy">
+			<a href="https://www.facebook.com/codecademy">Friend us on <span>Facebook!</span></a>
+		</div>
+	
 		
 		<ul>
-                        		{ %    for artist in artists    % }    
-						<li> {{ artist.name}} </li>
-				        { %   endfor    % }  
-				
-		</ul>
-		<ul>
-			<li><p style="color:blue">ARTISTS</p>
-				<ul>
-					<li style="font-family:Futura">{{ boldmessage }} Bananas</li>
+			<li><p style="color:blue">Interests</p>
+				<ul><div>
+					<li style="font-family:Futura">Bananas</li>
+					<li style="font-family:Futura">Climbing stuff</li>
+					<li style="font-family:Futura">HTML</li>
+					</div>
 				</ul>
             </li>
 			<li><p style="color:blue">Jobs</p>
