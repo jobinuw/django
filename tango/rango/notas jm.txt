@@ -233,3 +233,12 @@ quiere visualizar algo.
 
 Es decir que con las templates o plantillas django se encarga de inyectar
 codigo html en la pagina para q posteriormente sea vista por el user.
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+FORMS
+
+

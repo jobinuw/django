@@ -8,7 +8,11 @@
                  <h1>Lista de Artistas</h1>	
                      <ul>
                           {% for ar in artists %}
-                             <li>{{ ar.name }}</li>
+                             <li>
+					<a href="/rango/artists/{{ar.id}}">
+			                      {{ ar.name }}
+			                 </a>		 							 
+			     </li>
                           {% endfor %}
                      </ul>
            
